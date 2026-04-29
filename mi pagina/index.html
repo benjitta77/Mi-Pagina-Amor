@@ -1,0 +1,103 @@
+love.html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Para ti ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      color: white;
+      text-align: center;
+      font-family: Arial;
+      overflow: hidden;
+    }
+
+    h1 {
+      margin-top: 80px;
+      font-size: 45px;
+      animation: aparecer 2s ease-in-out;
+    }
+
+    p {
+      font-size: 26px;
+      margin: 20px;
+      animation: aparecer 3s ease-in-out;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .corazon {
+      position: absolute;
+      color: red;
+      animation: flotar 5s linear infinite;
+    }
+
+    @keyframes flotar {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-800px); opacity: 0; }
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 18px;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>💖 Te amo demasiado 💖</h1>
+
+  <p>😍 ❤️ 😍 ❤️ 😍 ❤️ 😍 ❤️ 😍</p>
+
+  <p>✨ Eres la luz que ilumina mi oscuridad ✨</p>
+
+  <p>🌍❤️ Tú haces mi mundo más bonito ❤️🌍</p>
+
+  <p>❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</p>
+
+  <!-- Música -->
+  <audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <button onclick="reproducir()">💘 Tocar música</button>
+
+  <script>
+    function reproducir() {
+      document.getElementById("musica").play();
+    }
+
+    function crearCorazon() {
+      const corazon = document.createElement("div");
+      corazon.classList.add("corazon");
+      corazon.innerHTML = "❤️";
+
+      corazon.style.left = Math.random() * window.innerWidth + "px";
+      corazon.style.bottom = "0px";
+      corazon.style.fontSize = (Math.random() * 20 + 10) + "px";
+
+      document.body.appendChild(corazon);
+
+      setTimeout(() => {
+        corazon.remove();
+      }, 5000);
+    }
+
+    setInterval(crearCorazon, 300);
+  </script>
+
+</body>
+</html>
